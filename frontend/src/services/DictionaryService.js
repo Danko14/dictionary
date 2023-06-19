@@ -16,7 +16,6 @@ export class DictionaryService {
   }
 
   static async getWord(word){
-    console.log( JSON.stringify({ word }))
     const resp = await fetch(
       `/words`,
       {
@@ -28,10 +27,7 @@ export class DictionaryService {
       }
       )
 
-      console.log(resp)
       const wordData = await resp.json()
-
-      console.log(wordData)
 
       return wordData
   }
