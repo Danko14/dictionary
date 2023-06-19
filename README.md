@@ -7,6 +7,8 @@ service responsible for providing words, their forms and meaning
 запуск миграций: npx knex migrate:latest
 откат миграций: npx knex migrate:down
 
+запуск бд: docker run --name myPostgresDb -p 5455:5432 -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=postgresDB -d postgres
+
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
 Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
