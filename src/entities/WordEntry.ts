@@ -3,7 +3,7 @@ import type { LexicalCategory, WordId } from '../types/common'
 export class WordEntry {
     id: WordId
     initialForm: string
-    meaning: string
+    meaning: string[]
     pronunciation: string
     lexicalCategory: LexicalCategory
     commonPhrases: string[]

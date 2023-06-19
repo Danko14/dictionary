@@ -14,7 +14,10 @@ export const getWordSchema = {
             properties: {
                 id: { type: 'string' },
                 initialForm: { type: 'string' },
-                meaning: { type: 'string' },
+                meaning: {
+                    type: 'array',
+                    items: { type: 'string' },
+                },
                 pronunciation: { type: 'string' },
                 lexicalCategory: { type: 'string' },
                 commonPhrases: {

@@ -1,12 +1,10 @@
 import Knex from 'knex'
-import awilix from 'awilix'
 import { HttpApplication } from './application.http.js'
 import { DictionaryService } from './implementation/dictionary/DictionaryService.js'
 import { DictionaryRepository } from './implementation/dictionary/DictionaryRepository.js'
 import { GptClient } from './implementation/adapters/GptClient.js'
 
 const main = async () => {
-    const container = awilix.createContainer()
 
     const knex = Knex({
         client: 'postgresql',

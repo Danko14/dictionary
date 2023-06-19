@@ -5,7 +5,6 @@ import { IGenericRepository } from '../../interfaces/IGenericRepository.js'
 import { IGptClient } from '../../interfaces/IGptClient.js'
 import { IWordSpecification } from '../../interfaces/IWordSpecification.js'
 import { PaginatedList, WordsListItem } from '../../types/common.js'
-import { GetListQuery, GetListRequest, GetWordRequest } from '../../types/requests.js'
 import { WordsSpecification } from './WordsSpecification.js'
 
 export class DictionaryService implements IDictionaryService {
@@ -43,10 +42,13 @@ export class DictionaryService implements IDictionaryService {
                 }
 
                 if (wordData.forms.length) {
+                    if (!wordData.forms.includes(word)) {
+                        wordData.forms.push(word)
+                    }
                     const newWord = await this.saveWord(wordData)
                     newWord.forms = wordData.forms
 
-                    const forms = await this.saveForms(newWord)
+                    await this.saveForms(newWord)
                 }
             } else { throw e }
         }
